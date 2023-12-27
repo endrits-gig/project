@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Duhesh me pas &hearts;</title>
+    <title>Duhesh me pas Slider</title>
     <style>
         body {
             margin: 0;
@@ -24,16 +24,42 @@
             color: #333;
         }
 
-        .heart {
+        .emoji {
             font-size: 48px;
             color: #ff0000;
+        }
+
+        .gif {
+            display: none;
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="text">Duhesh me pas</div>
-        <div class="heart">&hearts;</div>
+        <div class="text" id="displayText">Duhesh me pas</div>
+        <div class="emoji" id="emoji">&hearts;</div>
+        <img class="gif" id="gif" src="https://media1.tenor.com/m/tCxYqPyFJZcAAAAC/running-dick-race.gif" alt="Running Dick Race">
     </div>
+
+    <script>
+        const emojis = ['&hearts;'];
+        const gifText = 'edhe duhesh me pas ksi';
+        let currentIndex = 0;
+
+        function changeEmoji() {
+            if (currentIndex < emojis.length) {
+                document.getElementById('emoji').innerHTML = emojis[currentIndex];
+            } else {
+                document.getElementById('emoji').style.display = 'none';
+                document.getElementById('gif').style.display = 'block';
+                document.getElementById('displayText').innerHTML = gifText;
+            }
+            currentIndex++;
+        }
+
+        setInterval(changeEmoji, 5000); // Change emoji every 5 seconds
+    </script>
 </body>
 </html>
